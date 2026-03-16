@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Smart Sensor Dashboard</title>
+
+<style>
+body {
+    font-family: Arial;
+    background: #eef;
+    padding: 20px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    margin: 15px;
+    border-radius: 10px;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>🌱 Live Smart Sensor Dashboard</h1>
+
+<div class="card">
+<h2>🌡 Temperature & 💧 Humidity</h2>
+<p>Temperature: <span id="temp">--</span> °C</p>
+<p>Humidity: <span id="hum">--</span> %</p>
+</div>
+
+<div class="card">
+<h2>🪴 Soil Moisture</h2>
+<p><span id="soil">--</span> %</p>
+</div>
+
+<div class="card">
+<h2>🔥 Gas Sensor (MQ-2)</h2>
+<p>Status: <span id="gas">--</span></p>
+</div>
+
+<div class="card">
+<h2>🌍 Device Location (IP-Based)</h2>
+
+{% if location %}
+
+<p><b>City:</b> {{ location.city }}</p>
+<p><b>Region:</b> {{ location.region }}</p>
+<p><b>Country:</b> {{ location.country }}</p>
+
+<iframe
+width="100%"
+height="300"
+style="border:0;border-radius:10px;"
+loading="lazy"
+src="https://www.openstreetmap.org/export/embed.html?bbox={{ location.lon-0.02 }},{{ location.lat-0.02 }},{{ location.lon+0.02 }},{{ location.lat+0.02 }}&layer=mapnik&marker={{ location.lat }},{{ location.lon }}">
+</iframe>
+
+{% endif %}
+
+</div>
+
+<script>
+
+function updateData() {
+
+fetch("/data")
+.then(res => res.json())
+.then(data => {
+
+document.getElementById("temp").innerText = data.temperature ?? "--";
+document.getElementById("hum").innerText = data.humidity ?? "--";
+document.getElementById("soil").innerText = data.soil ?? "--";
+
+document.getElementById("gas").innerText =
+data.gas ? "GAS DETECTED" : "Safe";
+
+});
+}
+
+setInterval(updateData, 2000);
+
+updateData();
+
+</script>
+
+</body>
+</html>
