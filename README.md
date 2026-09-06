@@ -40,7 +40,7 @@ The project also includes a **Flask-based smart sensor dashboard** for displayin
                M1 M2 M3        M4 M5 M6
 
 
-Sensors ──► Arduino / Raspberry Pi ──► Flask Server
+Sensors ──► Raspberry Pi ──► Flask Server
                                       │
                                       ▼
                                Web Dashboard
