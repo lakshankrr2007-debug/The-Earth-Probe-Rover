@@ -4,7 +4,7 @@ A six-wheel Arduino-based robotic rover designed for Bluetooth remote control an
 
 The project also includes a **Flask-based smart sensor dashboard** for displaying environmental information such as temperature, humidity, soil moisture, gas status, and approximate device location.
 
-![6-Wheel Smart Rover](Rover.jpeg)
+![6-Wheel Smart Rover]
 
 ## 🚀 Features
 
