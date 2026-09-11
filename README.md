@@ -35,7 +35,7 @@ The project also includes a **Flask-based smart sensor dashboard** for displayin
                            │
                      Motor Driver
                     ┌──────┴──────┐
-                    ▼             ▼
+                    ▼              ▼
               Left Motors     Right Motors
                M1 M2 M3        M4 M5 M6
 
@@ -110,7 +110,7 @@ Sensor values on the web page are refreshed every **2 seconds**.
 6-Wheel-Bluetooth-Smart-Rover/
 │
 ├── README.md
-├── 1000064575.jpg
+├── Rover.jpeg
 │
 ├── arduino/
 │   └── bluetooth_6wheel_robot.ino
